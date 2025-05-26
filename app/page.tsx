@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: "Find the best croissants in San Francisco and track your culinary journey.",
     images: [
       {
-        url: "/og.jpg", // Make sure this path is correct and the image exists in /public
+        url: "/og.png", // Make sure this path is correct and the image exists in /public
         width: 1200,
         height: 630,
         alt: "A delicious croissant from SF Croissant Tour",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SF Croissant Tour",
     description: "Find the best croissants in San Francisco and track your culinary journey.",
-    images: ["/og.jpg"],
+    images: ["/og.png"],
   },
 };
 
