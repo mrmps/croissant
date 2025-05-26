@@ -397,7 +397,7 @@ function PlaceItem({
               checked={place.visited}
               onCheckedChange={handleToggleVisited}
               disabled={isPending}
-              className="mt-1 h-4 w-4 rounded-sm border-zinc-500"
+              className="mt-1 h-4 w-4 rounded-sm border-zinc-600 data-[state=checked]:bg-zinc-600 data-[state=checked]:text-white data-[state=checked]:border-zinc-600"
             />
           </motion.div>
           <div>
