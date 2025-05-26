@@ -183,3 +183,25 @@ export async function getGlobalStats() {
     return []
   }
 }
+
+// Fetch all users and their ratings (for dashboard)
+export async function getAllUserRatings() {
+  try {
+    await initializeDatabase();
+    const result = await sql`
+      SELECT users.id as user_id, ratings.place_id, ratings.rating, ratings.created_at
+      FROM users
+      LEFT JOIN ratings ON users.id = ratings.user_id
+      ORDER BY users.id, ratings.created_at
+    `;
+    return result.map((row: any) => ({
+      userId: row.user_id,
+      placeId: row.place_id,
+      rating: row.rating,
+      createdAt: row.created_at,
+    }));
+  } catch (error) {
+    console.error("Error fetching all user ratings:", error);
+    return [];
+  }
+}

@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import LoadingAnimation from "@/components/LoadingAnimation"
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <main className="min-h-screen">{children}</main>
           </Suspense>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
