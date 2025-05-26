@@ -1,8 +1,9 @@
-import type React from "react"
+import React, { Suspense } from "react"
 import "./globals.css"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
+import LoadingAnimation from "@/components/LoadingAnimation"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,7 +21,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased bg-white`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <main className="min-h-screen">{children}</main>
+          <Suspense fallback={<LoadingAnimation />}>
+            <main className="min-h-screen">{children}</main>
+          </Suspense>
         </ThemeProvider>
       </body>
     </html>
